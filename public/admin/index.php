@@ -94,42 +94,42 @@ if (isset($_GET['act'])) {
     ////
     case 'list_vocabulary':
 
-      include 'Vocabulary./list_vocabulary.php';
+      include 'Vocabulary/list_vocabulary.php';
       break;
 
     case 'add_vocabulary':
 
-      include 'Vocabulary./add_vocabulary.php';
+      include 'Vocabulary/add_vocabulary.php';
       break;
     
     case 'delete_vocabulary':
 
-      include 'Vocabulary./delete_vocabulary.php';
+      include 'Vocabulary/delete_vocabulary.php';
       break;
     
     case 'update_vocabulary':
 
-      include 'Vocabulary./update_vocabulary.php';
+      include 'Vocabulary/update_vocabulary.php';
       break;
 
 
     ///
     case 'list_answer_question':
 
-      include 'answer_question./list_answer_question.php';
+      include 'answer_question/list_answer_question.php';
       break;
     
     case 'add_answer_question':
 
-      include 'answer_question./add_answer_question.php';
+      include 'answer_question/add_answer_question.php';
       break;
     case 'delete_answer_question':
 
-      include 'answer_question./delete_answer_question.php';
+      include 'answer_question/delete_answer_question.php';
       break;
     case 'update_answer_question':
 
-      include 'answer_question./update_answer_question.php';
+      include 'answer_question/update_answer_question.php';
       break;
   }
 } 
