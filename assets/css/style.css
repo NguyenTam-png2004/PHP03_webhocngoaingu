@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+}
+
+.container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Adjusting video container */
+.play-video {
+    margin-bottom: 20px;
+}
+
+/* Style for the video element */
+.play-video video {
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 8px;
+    width: 100%;
+}
+
+.progress {
+    background-color: #4caf50;
+    height: 100%;
+    width: 60%;
+    border-radius: 10px;
+}
+
+h2 {
+    margin: 20px 0;
+}
+video
+.words-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.word {
+    background-color: #c8e6c9;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.drop-area {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.drop-box {
+    background-color: #f0f0f0;
+    width: 80px;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px dashed #ddd;
+}
+
+.drop-box.filled {
+    background-color: #dcedc8;
+}
+
+.message {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.7);
+    height: 150px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.show {
+    display: flex; /* Hiển thị thông báo khi thêm lớp 'show' */
+}
+.message_left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+}
+.success-message {
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 50px ;
+}
+
+.continue-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+}
+.style_input_answer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 40px;
+    font-size: 20px;
+    width: 80%;
+}
+.style_input_answer label{
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+.style_input_answer input[type="radio"] {
+    appearance: none; /* For modern browsers */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+    background-color: transparent;
+}
+
+/* Custom style for the label when the radio button is checked */
+.style_input_answer input[type="radio"]:checked + label {
+    color: #116EEE;
+    border:2px solid #116EEE;
+}
+
+.question{
+    font-size: 21px;
+}

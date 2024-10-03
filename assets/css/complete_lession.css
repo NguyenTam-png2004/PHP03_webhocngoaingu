@@ -1,0 +1,172 @@
+/*vocal_filter*/
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+/**/ 
+.container_complete_lesson{
+    display:flex; 
+    height: 100vh;   
+    flex-direction: column;        
+    justify-content: center;        
+    align-items: center;   
+    text-align: center;         
+    font-family: Arial;
+}
+.content_complete_lession_1{
+    line-height: 1.5em;
+    color: rgb(30, 45, 64);
+    text-align: center;
+    text-decoration: unset;
+}
+.buttons_complete_lession{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid;
+    padding: 1.5em ;
+    justify-content: space-around;
+    background-color: white;
+}
+.buttons_complete_lession button{
+    width: 8.125rem;
+    height: 2.8125rem;
+    border: none;
+    border-radius: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    overflow-wrap: break-word;
+    cursor: pointer;
+}
+.next_button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color:#418BF1;
+    color: white;
+    
+}
+.return_button{
+    background-color: aliceblue;
+    border: 1px solid #DAE1EA;
+}
+
+
+.icon_language{
+    font-size: 25px;
+}
+.icon_language img{
+    width: 400px;
+}
+.complete_1 .box{
+    border: 2px solid #DAE1EA;
+    border-radius: 20px;
+    display: flex;
+    padding: 10px;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.complete_1 .box p{
+    margin: 0 5px;
+}
+.exp_container_left, .exp_container_right, .Score{
+    display: flex;
+    align-items: center;
+}
+.exp_container_right, .Score{
+    margin-left: auto;
+}
+.overlay {
+    display: none;  /* Ẩn đi mặc định */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu đen với độ mờ */
+    z-index: 1;  /* Đảm bảo ở dưới infor_exp nhưng trên các phần tử khác */
+}
+.infor_exp {
+    display: none;  /* Mặc định ẩn */
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    border-radius: 30px;
+    width: 40%;
+    margin-bottom: 100px;
+    padding: 20px;
+    position: fixed;
+    bottom: 30%;
+    left: 30%;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.infor_exp.show {
+    display: flex;  /* Khi có class 'show', hiển thị và dùng flex */
+}
+.overlay.show {
+    display: block;
+}
+
+.container_star{
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #F3F8FE;
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+
+/* Kích thước màn hình nhỏ hơn 600px */
+@media (max-width: 600px) {
+    .responsive-text {
+        font-size: 1.1rem; /* Phóng to cho màn hình nhỏ */
+    }
+    .responsive-button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;        
+        align-items: center;
+        width: 100%;
+        padding: 1rem 0;
+    }
+    button{
+        width: 15rem;
+        height: 3rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    .container_complete_lesson{
+        height: 120vh; 
+    }
+    .container_BXH{
+        width: 100%;
+    }
+}
+
+/* Kích thước màn hình từ 600px đến 1200px */
+@media (min-width: 601px) and (max-width: 1200px) {
+    .responsive-text {
+        font-size: 1.2rem; /* Tăng kích thước cho màn hình vừa */
+    }
+    #next_level {
+        width: 450px;
+        height: 275px;
+    }
+}
+
+/* Kích thước màn hình lớn hơn 1200px */
+@media (min-width: 1201px) {
+    .responsive-text {
+        font-size: 1.5rem; /* Phóng to cho màn hình lớn */
+    }
+    #next_level {
+        width: 500px;
+        height: 325px;
+    }
+}

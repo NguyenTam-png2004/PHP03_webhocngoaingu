@@ -1,0 +1,219 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*circle_complete*/
+a{
+    color: inherit;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+.viewport_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+.viewport_content{
+    width: 650px;
+    min-width: 400px;
+}
+.header_home_login  h1{
+    margin: 30px 0;
+}
+.header_home_login .course_current p{
+    margin: 10px 0;
+    margin-left: 10px;
+}
+.course_current{
+    display: inline-flex;
+    align-items: center;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #DAE1EA;
+    width: 100%;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+}
+.course_current p {
+    font-size: 18px;
+    margin-left: 10px;
+}
+.list_courses {
+    position: absolute; /* Positioned absolutely relative to the course_current div */
+    top: 100%; /* Positioned right below the course_current element */
+    left: 0;
+    z-index: 1000; /* Ensures it's on top of other elements */
+    margin-top: 5px;
+    border: 1px solid #e0e4eb;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    width: 100%; /* Same width as the course_current element */
+    display: none; /* Initially hidden */
+}
+
+.list_courses ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list_courses li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #e0e4eb;
+}
+
+.list_courses li:last-child {
+    border-bottom: none;
+}
+
+.list_courses li:hover {
+    background-color: #f0f0f0;
+}
+.rank_current{
+    font-size: 20px;
+    width: 100%;
+    border: 2px solid #DAE1EA;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #5438DC;
+    color: #fff;
+}
+.body_home_login .course {
+    border: 2px solid #DAE1EA;
+    border-radius: 20px;
+    width: 100%;
+    padding-left: 20px;
+    margin: 30px 0;
+}
+.body_home_login .course .name_course{
+    font-size: 22px;
+    margin: 20px 0;
+}
+.content_course{
+    margin: 1rem 0;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.content_course:hover{
+    background-color: #F3F8FE;
+}
+.content_course .lesson{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    padding-left: 20px;
+}
+.circle{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle img{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+}
+.circle_complete{
+    border: 4px solid #0EBE75;
+}
+
+.progress {
+    height: 20px; /* Độ cao của thanh */
+    margin-right: 20px;
+}
+.progress-bar {
+    border-radius: 20px; /* Bo góc cho phần tiến trình */
+    position: relative;
+}
+
+.progress-bar span {
+    position: absolute;
+    right: 10px; /* Căn phần trăm về phía bên phải */
+    color: white;
+    font-weight: bold;
+}
+.circle_complete {
+    position: relative;
+}
+.checkmark img{
+    border: none;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+}
+.checkmark {
+    position: absolute;
+    top: 95%; /* Điều chỉnh vị trí dấu check */
+    left: 48%;
+    transform: translate(-50%, -50%);
+}
+.circle_unfinished{
+    border: 4px solid #DAE1EA;
+    opacity: 0.6;
+}
+.unfinished p{
+    opacity: 0.5;
+}
+.icon_unfinished img{
+    border: none;
+    padding: 0;
+    opacity: 1;
+    width: 45px;
+    height: 45px;
+}
+.circle_unfinished{
+    position: relative;
+}
+.icon_unfinished{
+    position: absolute;
+    top: 50%; /* Điều chỉnh vị trí dấu check */
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.circle_current{
+    border: 4px solid #DAE1EA;
+}
+.circle_current img{
+    animation: scale 2s infinite; /* Áp dụng animation */
+}
+@keyframes scale {
+    0% { transform: scale(1); } /* Kích thước ban đầu */
+    90% { transform: scale(1.1); } /* Phóng to 1.5 lần */
+    100% { transform: scale(1); } /* Quay lại kích thước ban đầu */
+}
+
+/* Kích thước màn hình nhỏ hơn 600px */
+@media (max-width: 600px) {
+    .viewport_content{
+        width: 500px;
+        min-width: 200px;
+        margin: 0 10px;
+    }
+}
+
+/* Kích thước màn hình từ 600px đến 1200px */
+@media (min-width: 601px) and (max-width: 1200px) {
+    
+}
+
+/* Kích thước màn hình lớn hơn 1200px */
+@media (min-width: 1201px) {
+    
+}
