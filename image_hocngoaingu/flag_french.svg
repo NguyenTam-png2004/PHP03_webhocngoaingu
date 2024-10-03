@@ -1,0 +1,11 @@
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="FR" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="france" fill-rule="nonzero">
+            <circle id="Oval" fill="#F0F0F0" cx="60" cy="60" r="60"></circle>
+            <path d="M120,60 C120,34.2021094 103.7175,12.2095312 80.8694531,3.73195313 L80.8694531,116.268281 C103.7175,107.790469 120,85.7978906 120,60 Z" id="Shape" fill="#D80027"></path>
+            <path d="M0,60 C0,85.7978906 16.2827344,107.790469 39.1305469,116.268047 L39.1305469,3.73195313 C16.2827344,12.2095312 0,34.2021094 0,60 Z" id="Shape" fill="#0052B4"></path>
+        </g>
+        <circle id="Oval-9" stroke-opacity="0.1" stroke="#000000" cx="60" cy="60" r="60"></circle>
+    </g>
+</svg>
