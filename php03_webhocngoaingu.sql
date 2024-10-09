@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 03, 2024 lúc 06:38 AM
+-- Thời gian đã tạo: Th10 09, 2024 lúc 03:12 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -182,6 +182,17 @@ INSERT INTO `lessons` (`ID`, `ID_course`, `name_lesson`, `lesson_order`, `des_le
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `name_status_vocabulary`
+--
+
+CREATE TABLE `name_status_vocabulary` (
+  `ID` int(11) NOT NULL,
+  `name_status` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `progress`
 --
 
@@ -218,6 +229,18 @@ CREATE TABLE `questions` (
 INSERT INTO `questions` (`ID`, `ID_lesson`, `question_text`) VALUES
 (1, 1, 'What is the greeting in English?'),
 (2, 2, 'How do you form the present simple tense?');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `status_vocabulary`
+--
+
+CREATE TABLE `status_vocabulary` (
+  `user_id` int(11) NOT NULL,
+  `vocab_id` int(11) NOT NULL,
+  `status_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -277,39 +300,6 @@ INSERT INTO `vocabulary` (`ID`, `ID_lesson`, `vocabulary`, `sound`, `image`, `vi
 (3, 1, 'Nice to meet you.', 'image_hocngoaingu/nice_to_meet_you.mp4', 'image_hocngoaingu/nice_to_meet_you.mp4', 'image_hocngoaingu/nice_to_meet_you.mp4', '\"Nice to meet you\" là một cách chào lịch sự khi bạn được giới thiệu với ai đó lần đầu, thể hiện sự vui mừng khi gặp gỡ họ.', 'Rất vui được gặp bạn '),
 (4, 2, 'What your name ?', 'image_hocngoaingu/what ur name.mp4', 'image_hocngoaingu/what ur name.mp4', 'image_hocngoaingu/what ur name.mp4', '\"What is your name?\" là câu hỏi thường dùng để hỏi ai đó tên của họ khi bạn gặp họ lần đầu.', 'Bạn tên là gì ?');
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `vocabulary_favourite`
---
-
-CREATE TABLE `vocabulary_favourite` (
-  `ID` int(11) NOT NULL,
-  `ID_vocabulary` int(11) NOT NULL,
-  `ID_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `vocabulary_favourite`
---
-
-INSERT INTO `vocabulary_favourite` (`ID`, `ID_vocabulary`, `ID_user`) VALUES
-(13, 1, 1),
-(14, 2, 1);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `vocabulary_progress`
---
-
-CREATE TABLE `vocabulary_progress` (
-  `user_id` int(11) NOT NULL,
-  `word_id` int(11) NOT NULL,
-  `strength` enum('weak','strong') NOT NULL,
-  `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Chỉ mục cho các bảng đã đổ
 --
@@ -362,6 +352,12 @@ ALTER TABLE `lessons`
   ADD KEY `ID_course` (`ID_course`);
 
 --
+-- Chỉ mục cho bảng `name_status_vocabulary`
+--
+ALTER TABLE `name_status_vocabulary`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Chỉ mục cho bảng `progress`
 --
 ALTER TABLE `progress`
@@ -377,6 +373,14 @@ ALTER TABLE `questions`
   ADD KEY `ID_lesson` (`ID_lesson`);
 
 --
+-- Chỉ mục cho bảng `status_vocabulary`
+--
+ALTER TABLE `status_vocabulary`
+  ADD PRIMARY KEY (`user_id`,`vocab_id`,`status_id`),
+  ADD KEY `status_id` (`status_id`),
+  ADD KEY `vocab_id` (`vocab_id`);
+
+--
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
@@ -389,21 +393,6 @@ ALTER TABLE `users`
 ALTER TABLE `vocabulary`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `ID_lesson` (`ID_lesson`);
-
---
--- Chỉ mục cho bảng `vocabulary_favourite`
---
-ALTER TABLE `vocabulary_favourite`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID_vocabulary` (`ID_vocabulary`),
-  ADD KEY `ID_user` (`ID_user`);
-
---
--- Chỉ mục cho bảng `vocabulary_progress`
---
-ALTER TABLE `vocabulary_progress`
-  ADD PRIMARY KEY (`user_id`,`word_id`),
-  ADD KEY `word_id` (`word_id`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -452,6 +441,12 @@ ALTER TABLE `lessons`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT cho bảng `name_status_vocabulary`
+--
+ALTER TABLE `name_status_vocabulary`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `progress`
 --
 ALTER TABLE `progress`
@@ -474,12 +469,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `vocabulary`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT cho bảng `vocabulary_favourite`
---
-ALTER TABLE `vocabulary_favourite`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -530,24 +519,18 @@ ALTER TABLE `questions`
   ADD CONSTRAINT `questions_ibfk_1` FOREIGN KEY (`ID_lesson`) REFERENCES `lessons` (`ID`);
 
 --
+-- Các ràng buộc cho bảng `status_vocabulary`
+--
+ALTER TABLE `status_vocabulary`
+  ADD CONSTRAINT `status_vocabulary_ibfk_1` FOREIGN KEY (`status_id`) REFERENCES `name_status_vocabulary` (`ID`),
+  ADD CONSTRAINT `status_vocabulary_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`),
+  ADD CONSTRAINT `status_vocabulary_ibfk_3` FOREIGN KEY (`vocab_id`) REFERENCES `vocabulary` (`ID`);
+
+--
 -- Các ràng buộc cho bảng `vocabulary`
 --
 ALTER TABLE `vocabulary`
   ADD CONSTRAINT `vocabulary_ibfk_1` FOREIGN KEY (`ID_lesson`) REFERENCES `lessons` (`ID`);
-
---
--- Các ràng buộc cho bảng `vocabulary_favourite`
---
-ALTER TABLE `vocabulary_favourite`
-  ADD CONSTRAINT `vocabulary_favourite_ibfk_1` FOREIGN KEY (`ID_vocabulary`) REFERENCES `vocabulary` (`ID`),
-  ADD CONSTRAINT `vocabulary_favourite_ibfk_2` FOREIGN KEY (`ID_user`) REFERENCES `users` (`ID`);
-
---
--- Các ràng buộc cho bảng `vocabulary_progress`
---
-ALTER TABLE `vocabulary_progress`
-  ADD CONSTRAINT `vocabulary_progress_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`),
-  ADD CONSTRAINT `vocabulary_progress_ibfk_2` FOREIGN KEY (`word_id`) REFERENCES `vocabulary` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
